@@ -1,15 +1,10 @@
 <div class="contents row">
   <%= form_tag('/tweets', method: :post) do %>
-  <!-- #/tweetsにpostメソッドでフォームに入力された情報を送信 -->
     <h3>
-      投稿
+      投稿する
     </h3>
-    <input placeholder="Nickname" type="text" name="name">
-    <input placeholder="Image Url" type="text" name="image">
-    <textarea cols="30" name="text" placeholder="ここに入力してね" rows="10"></textarea>
-    <input type="submit" value="(っ´･ω･)っ［ツイート］ ">
+    <input placeholder="Image URL" type="text" name="image" autofocus="true">
+    <textarea placeholder="text" name="text" cols="30" rows="10"></textarea>
+    <input type="submit" value="SENT">
   <% end %>
-  <!-- <%= form_tag('/tweets', method: :post) do %>と<% end %>で囲むと入力のタグになる -->
-  <!-- '/tweets'はパスを表している
-  method: :postはhttpメソッドをpostすると言う書き方 -->
 </div>
