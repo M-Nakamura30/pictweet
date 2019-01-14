@@ -57,5 +57,5 @@ test: #テスト環境に関する設定
 production: #本番環境に関する設定
   <<: *default
   database: pictweet_production
-  username: pictweet
-  password: <%= ENV['PICTWEET_DATABASE_PASSWORD'] %>
+  # username: pictweet
+  # password: <%= ENV['PICTWEET_DATABASE_PASSWORD'] %>
