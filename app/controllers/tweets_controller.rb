@@ -1,19 +1,18 @@
 class TweetsController < ApplicationController
 
-before_action :move_to_index, except: :index
-
+  before_action :move_to_index, except: :index
 
   def index
     @tweets = Tweet.includes(:user).page(params[:page]).per(5).order("created_at DESC")
   end
 
-  def new
+  def show
+    @tweet = Tweet.find(params[:id])
+    @comments = @tweet.comments.includes(:user)
   end
 
-  # def create
-  #     Tweet.create(name: params[:name], image: params[:image], text: params[:text])
-  #     # paramsから適切なキーを取り出すことで、ユーザーが入力する値をテーブルに保存
-  # end
+  def new
+  end
 
   def create
     Tweet.create(image: tweet_params[:image], text: tweet_params[:text], user_id: current_user.id)
@@ -21,7 +20,9 @@ before_action :move_to_index, except: :index
 
   def destroy
     tweet = Tweet.find(params[:id])
-    tweet.destroy if tweet.user_id == current_user.id
+    if tweet.user_id == current_user.id
+      tweet.destroy
+    end
   end
 
   def edit
@@ -41,6 +42,6 @@ before_action :move_to_index, except: :index
   end
 
   def move_to_index
-      redirect_to action: :index unless user_signed_in?
+    redirect_to :action => "index" unless user_signed_in?
   end
 end
