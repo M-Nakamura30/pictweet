@@ -105,7 +105,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.19.0', group: :production
 end
 
 group :test do
@@ -124,3 +124,4 @@ gem 'compass-rails','3.1.0'
 gem 'sprockets', '3.7.2'
 gem 'kaminari'
 gem 'devise'
+gem 'rails_12factor', group: :production
