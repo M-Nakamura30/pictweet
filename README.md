@@ -7,4 +7,4 @@
 * Rails version
   Rails 5.2.2
 
-Twitter機能を作成するためにRailsで作ったアプリケーションです。
+Twitterを学習するためにローカル環境のRailsで作ったアプリケーションです。
